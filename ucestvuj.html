@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Učestvuj — Mechanics Lab</title>
+<meta name="description" content="How students, teaching assistants and professors can add tasks, fix errors and extend the Mechanics Lab pilot.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-sr">
+<a class="skip" href="#main"><span class="sr">Preskoči na sadržaj</span><span class="en" lang="en">Skip to content</span></a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Mechanics <span>Lab</span></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html"><span class="sr">Početna</span><span class="en" lang="en">Home</span></a>
+      <a href="program.html"><span class="sr">Program</span><span class="en" lang="en">Programme</span></a>
+      <a href="lab.html"><span class="sr">Laboratorija</span><span class="en" lang="en">Lab</span></a>
+      <a href="zadaci.html"><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></a>
+      <a href="metod.html"><span class="sr">Metod</span><span class="en" lang="en">Method</span></a>
+      <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a>
+    </nav>
+    <button id="langToggle" type="button" lang="en">English</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></h1>
+    <p class="lead"><span class="sr">Pilot je napravljen da ga nastavnik i student mogu menjati bez dozvole, bez alata za građenje i bez naloga igde osim na GitHubu.</span>
+    <span class="en" lang="en">The pilot is built so a teacher or a student can change it without permission, without a build tool, and without an account anywhere except GitHub.</span></p>
+
+    <h2><span class="sr">Tri uloge</span><span class="en" lang="en">Three roles</span></h2>
+    <div class="grid g3">
+      <article class="card">
+        <span class="tag"><span class="sr">student</span><span class="en" lang="en">student</span></span>
+        <h3><span class="sr">Prijavi grešku ili nejasnoću</span><span class="en" lang="en">Report an error or a confusion</span></h3>
+        <p><span class="sr">Otvori <em>issue</em> i napiši šta si uneo, šta je alat pokazao i šta si očekivao. Nejasna formulacija zadatka je ravnopravna greška sa pogrešnim brojem: ako si ti pogrešno razumeo, pogrešiće i sledeća godina.</span>
+        <span class="en" lang="en">Open an issue with what you entered, what the tool showed and what you expected. An unclear task statement counts as much as a wrong number: if you misread it, so will next year's class.</span></p>
+      </article>
+      <article class="card">
+        <span class="tag"><span class="sr">asistent</span><span class="en" lang="en">assistant</span></span>
+        <h3><span class="sr">Dodaj tip zadatka</span><span class="en" lang="en">Add a task type</span></h3>
+        <p><span class="sr">Jedna funkcija u <code>assets/zadaci.js</code>: vrati tekst na oba jezika, jedinicu, tačan odgovor <strong>izračunat pozivom jezgra</strong> i korake. Nemoj pisati sopstvenu formulu za tačan odgovor — tako zadatak i jezgro ne mogu da se raziđu.</span>
+        <span class="en" lang="en">One function in <code>assets/zadaci.js</code>: return the text in both languages, the unit, the correct answer <strong>computed by calling the core</strong>, and the steps. Do not write your own formula for the answer — that is what keeps the task and the core in sync.</span></p>
+      </article>
+      <article class="card">
+        <span class="tag"><span class="sr">nastavnik</span><span class="en" lang="en">teacher</span></span>
+        <h3><span class="sr">Prilagodi program</span><span class="en" lang="en">Adapt the programme</span></h3>
+        <p><span class="sr">Nedelje su u <code>program.html</code>, u običnim <code>&lt;details&gt;</code> blokovima. Promeni raspored poena, zameni nedelju, prepiši cilj — nema šablona koji to zabranjuje. Ako tvoj akreditovani silabus traži drugi redosled, pilot se savija, a ne silabus.</span>
+        <span class="en" lang="en">The weeks live in <code>program.html</code> as plain <code>&lt;details&gt;</code> blocks. Change the points, replace a week, rewrite a goal — no template forbids it. If your accredited syllabus needs another order, the pilot bends, not the syllabus.</span></p>
+      </article>
+    </div>
+
+    <h2><span class="sr">Kako se radi lokalno</span><span class="en" lang="en">Working locally</span></h2>
+    <p><span class="sr">Nema koraka građenja, nema <code>npm install</code>, nema zavisnosti. Kloniraj i otvori <code>index.html</code>:</span>
+    <span class="en" lang="en">No build step, no <code>npm install</code>, no dependencies. Clone and open <code>index.html</code>:</span></p>
+    <pre><code>git clone https://github.com/3esign/mechanics-lab
+cd mechanics-lab
+node tests/mehanika.test.js     # 77 provera / 77 checks
+node tests/sajt.test.js         # veze, id-jevi, bez spoljnih resursa</code></pre>
+    <p><span class="sr">Pravilo pre spajanja: <strong>nov proračun dolazi sa testom</strong>. Ako dodaješ trapezno opterećenje, dodaj i poznato rešenje za njega, i pusti da ga provere invarijante iz tačke 8 u testu. Ako testovi padnu, kod je kriv, ne test.</span>
+    <span class="en" lang="en">Rule before merging: <strong>a new calculation arrives with a test</strong>. If you add trapezoidal loading, add its closed-form check too and let the invariants in test section 8 cover it. If the tests fail, the code is wrong, not the test.</span></p>
+
+    <h2><span class="sr">Šta se neće prihvatiti</span><span class="en" lang="en">What will not be accepted</span></h2>
+    <ul>
+      <li><span class="sr">Zavisnost iz <code>npm</code>, CDN skripta, font sa interneta, analitika, kolačić. Sajt mora raditi iz foldera, bez mreže i bez praćenja.</span>
+      <span class="en" lang="en">An <code>npm</code> dependency, a CDN script, a remote font, analytics, a cookie. The site must run from a folder, offline and untracked.</span></li>
+      <li><span class="sr">Proračun bez testa, ili test prilagođen da prođe kraj pogrešnog koda.</span>
+      <span class="en" lang="en">A calculation without a test, or a test bent to pass broken code.</span></li>
+      <li><span class="sr">Rezultat koji ne kaže svoju granicu. Ako nova provera pretpostavlja klasu preseka, bočnu stabilnost ili vrednost iz nacionalnog priloga, to mora da se ispiše uz broj.</span>
+      <span class="en" lang="en">A result that hides its limit. If a new check assumes a section class, lateral stability or a national-annex value, that must be printed next to the number.</span></li>
+      <li><span class="sr">Tvrdnja da je alat za projektovanje. Nije i ne treba da postane: za to postoje overeni programi i ovlašćeni inženjer.</span>
+      <span class="en" lang="en">A claim that this is design software. It is not and should not become one: that is what certified programs and licensed engineers are for.</span></li>
+    </ul>
+
+    <h2><span class="sr">Licenca</span><span class="en" lang="en">Licence</span></h2>
+    <p><span class="sr">Tekst, program i zadaci: <strong>CC BY-SA 4.0</strong> — koristi, menjaj i predaj dalje, pod istom licencom i sa navođenjem. Kod (<code>assets/*.js</code>, <code>tests/*</code>): <strong>MIT</strong> — uzmi u svoj predmet ili alat bez pitanja.</span>
+    <span class="en" lang="en">Text, programme and tasks: <strong>CC BY-SA 4.0</strong> — use, change and pass on, under the same licence and with attribution. Code (<code>assets/*.js</code>, <code>tests/*</code>): <strong>MIT</strong> — take it into your own course or tool without asking.</span></p>
+    <p><span class="sr">Standardi EN i SRPS EN nisu ovde priloženi i ne smeju biti: oni su autorsko delo svojih izdavača. Ovde stoje samo oznake, brojevi tabela i postupci iz javno objavljene nastavne literature.</span>
+    <span class="en" lang="en">The EN and SRPS EN standards are not included here and must not be: they are the copyrighted work of their publishers. Only designations, table numbers and procedures from publicly published teaching literature appear here.</span></p>
+
+    <h2><span class="sr">Sledeći koraci pilota</span><span class="en" lang="en">Next steps for the pilot</span></h2>
+    <ol>
+      <li><span class="sr">Uporediti program sa zvaničnim akreditovanim silabusom predmeta i pomeriti nedelje gde treba.</span>
+      <span class="en" lang="en">Compare the programme with the official accredited syllabus and move weeks where needed.</span></li>
+      <li><span class="sr">Rešetke u laboratoriji: metoda čvorova sa prikazom pritisnutih i zategnutih štapova (nedelja 6 je sada bez instrumenta).</span>
+      <span class="en" lang="en">Trusses in the lab: method of joints with compression and tension members shown (week 6 currently has no instrument).</span></li>
+      <li><span class="sr">Smicanje po EN 1992 sa uzengijama i tablični W<sub>pl</sub> za valjane profile.</span>
+      <span class="en" lang="en">EN 1992 shear with stirrups, and tabulated W<sub>pl</sub> for rolled profiles.</span></li>
+      <li><span class="sr">Probni čas sa stvarnom grupom i jedno merenje: koliko studenata tačno predvidi pomeranje vrha momenta <em>pre</em> nego što vidi dijagram.</span>
+      <span class="en" lang="en">A trial lecture with a real group and one measurement: how many students correctly predict the shift of the moment peak <em>before</em> seeing the diagram.</span></li>
+    </ol>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/3esign/mechanics-lab">GitHub</a> · <a href="metod.html"><span class="sr">Metod i izvori</span><span class="en" lang="en">Method and sources</span></a> · CC BY-SA 4.0 + MIT</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{"pojam":"instrument","znacenje":"interaktivni deo laboratorije koji racuna uzivo iz jezgra; nije kalkulator nego klizac za predvidjanje","nastao":"2026-10-01"}
+{"pojam":"presuda","znacenje":"recenica ispod rezultata koja kaze zadovoljava/ne zadovoljava I razlog; nikad samo boja","nastao":"2026-10-01"}
+{"pojam":"jezgro","znacenje":"assets/mehanika.js — jedini izvor proracuna; i testovi i zadaci i UI zovu njega","nastao":"2026-10-01"}
+{"pojam":"invarijanta","znacenje":"provera koja ne zna tacan odgovor nego sta mora da vazi (SumF=0, dM/dx=V); hvata ono sto resen primer ne hvata","nastao":"2026-10-01"}
+{"pojam":"izmerena aproksimacija","znacenje":"razlika naseg modela i tablice se izmeri, upise u test kao opseg i ispise korisniku, umesto da se prepise tablica","nastao":"2026-10-01"}
+{"pojam":"granica resavaca","znacenje":"sistem van domasaja vraca odredjen:false sa razlogom i baca gresku na unutrasnje sile; nikad priblizan broj","nastao":"2026-10-01"}

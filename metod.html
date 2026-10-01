@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metod — Mechanics Lab</title>
+<meta name="description" content="The teaching method, the sources with check dates, the limits of every calculation, and how the calculation core is tested.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-sr">
+<a class="skip" href="#main"><span class="sr">Preskoči na sadržaj</span><span class="en" lang="en">Skip to content</span></a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Mechanics <span>Lab</span></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html"><span class="sr">Početna</span><span class="en" lang="en">Home</span></a>
+      <a href="program.html"><span class="sr">Program</span><span class="en" lang="en">Programme</span></a>
+      <a href="lab.html"><span class="sr">Laboratorija</span><span class="en" lang="en">Lab</span></a>
+      <a href="zadaci.html"><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></a>
+      <a href="metod.html"><span class="sr">Metod</span><span class="en" lang="en">Method</span></a>
+      <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a>
+    </nav>
+    <button id="langToggle" type="button" lang="en">English</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1><span class="sr">Metod, izvori, granice</span><span class="en" lang="en">Method, sources, limits</span></h1>
+    <p class="lead"><span class="sr">Ova strana postoji da bi nastavnik mogao da proveri alat pre nego što ga unese u salu, a student da vidi na čemu stoji broj koji mu je mašina dala.</span>
+    <span class="en" lang="en">This page exists so a teacher can audit the tool before bringing it into a classroom, and a student can see what the machine's number stands on.</span></p>
+
+    <h2><span class="sr">Četiri odluke o nastavi</span><span class="en" lang="en">Four teaching decisions</span></h2>
+
+    <h3><span class="sr">1. Dijagram oslobođenog tela dobija celu nedelju</span><span class="en" lang="en">1. The free-body diagram gets a whole week</span></h3>
+    <p><span class="sr">Literatura iz nastave inženjerstva dosledno pokazuje da se greške u mehanici koncentrišu u dijagramu oslobođenog tela, a ne u aritmetici: izostavljena sila i sila koju telo deluje na samo sebe su dve najčešće. Postoje i merni instrumenti za to — Statics Concept Inventory (2002) i Statics Skills Inventory (2003), koji posebno mere modelovanje i dijagrame. Zato je nedelja 3 cela posvećena dijagramu, a vežba je nalaženje greške u gotovom dijagramu, ne crtanje novog.</span>
+    <span class="en" lang="en">Engineering-education literature consistently locates mechanics errors in the free-body diagram rather than in arithmetic: a missing force and a force the body exerts on itself are the two most common. There are instruments for it — the Statics Concept Inventory (2002) and the Statics Skills Inventory (2003), which measure modelling and diagramming separately. So week 3 is entirely about the diagram, and the tutorial is finding the error in a given diagram, not drawing a new one.</span></p>
+
+    <h3><span class="sr">2. Predviđanje pre računa</span><span class="en" lang="en">2. Predict before you calculate</span></h3>
+    <p><span class="sr">Instrument u laboratoriji nije kalkulator, nego klizač. Pitanje na času je uvek isto: ako pomerim silu ovamo, šta će se desiti sa momentom — i student kaže pre nego što alat pokaže. Alat koji odmah daje tačan broj bez prethodnog pitanja pravi studenta koji ume da unese podatke, a ne studenta koji ume da proceni.</span>
+    <span class="en" lang="en">The lab instrument is not a calculator, it is a slider. The question in class is always the same: if I move the load here, what happens to the moment — and the student answers before the tool shows. A tool that hands over the right number without that question produces a student who can enter data, not one who can estimate.</span></p>
+
+    <h3><span class="sr">3. Brojevi se menjaju, zadatak ostaje</span><span class="en" lang="en">3. The numbers change, the task stays</span></h3>
+    <p><span class="sr">Svaki zadatak dobija nove brojeve na svako učitavanje, pa prepisivanje rešenja ne pomaže, a ponavljanje istog postupka pomaže. Tolerancija je 2% da zaokruživanje ne bude kazna. Koraci su dostupni i pre odgovora: cilj je da student nauči, ne da ga sistem uhvati.</span>
+    <span class="en" lang="en">Every task gets fresh numbers on each load, so copying an answer does not help while repeating the procedure does. Tolerance is 2% so rounding is not punished. Steps are available before answering: the goal is that the student learns, not that the system catches them out.</span></p>
+
+    <h3><span class="sr">4. Granica se ispisuje, ne prećutkuje</span><span class="en" lang="en">4. The limit is printed, not hidden</span></h3>
+    <p><span class="sr">Kad presek ne zadovoljava, alat ne piše samo „ne zadovoljava" nego i razlog i veličinu koja je prekoračena. Kad je neka vrednost pretpostavljena (W<sub>pl</sub> iz W<sub>el</sub>), stoji zvezdica. Kad sistem izlazi iz domašaja rešavača (treći oslonac), poziv baca grešku umesto da vrati broj. Šesti ishod učenja — „student ume da kaže gde njegov proračun prestaje da važi" — ne može da se nauči od alata koji to sam ne radi.</span>
+    <span class="en" lang="en">When a section fails, the tool prints the reason and the quantity exceeded, not just "fails". When a value is assumed (W<sub>pl</sub> from W<sub>el</sub>), it carries an asterisk. When a system is outside the solver's reach (a third support), the call throws instead of returning a number. The sixth learning outcome — "the student can say where their calculation stops being valid" — cannot be learned from a tool that does not do it itself.</span></p>
+
+    <h2><span class="sr">Šta jezgro radi i šta ne radi</span><span class="en" lang="en">What the core does and does not do</span></h2>
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th><span class="sr">Oblast</span><span class="en" lang="en">Area</span></th>
+          <th><span class="sr">Radi</span><span class="en" lang="en">Does</span></th>
+          <th><span class="sr">Ne radi</span><span class="en" lang="en">Does not</span></th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="sr">Statika</span><span class="en" lang="en">Statics</span></td>
+            <td><span class="sr">prosta greda, konzola, prepusti; q, P, koncentrisan moment; dijagrami V i M sa skokovima</span><span class="en" lang="en">simply supported, cantilever, overhangs; q, P, applied moment; V and M diagrams with jumps</span></td>
+            <td><span class="sr">statički neodređeni sistemi, rešetke, okviri, trapezno opterećenje, aksijalna sila N</span><span class="en" lang="en">indeterminate systems, trusses, frames, trapezoidal loads, axial force N</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr">Preseci</span><span class="en" lang="en">Sections</span></td>
+            <td><span class="sr">pravougaonik, krug, I i T iz geometrije; A, I<sub>y</sub>, W<sub>y</sub>, težište</span><span class="en" lang="en">rectangle, circle, I and T from geometry; A, I<sub>y</sub>, W<sub>y</sub>, centroid</span></td>
+            <td><span class="sr">zaobljenja valjanih profila (daje 93–97% tabličnog I<sub>y</sub>), torziona krutost, glavne ose kod nesimetričnih preseka, W<sub>pl</sub></span><span class="en" lang="en">root fillets of rolled profiles (yields 93–97% of tabulated I<sub>y</sub>), torsional stiffness, principal axes of asymmetric sections, W<sub>pl</sub></span></td>
+          </tr>
+          <tr>
+            <td><span class="sr">Beton EN 1992</span><span class="en" lang="en">Concrete EN 1992</span></td>
+            <td><span class="sr">pravougaoni presek, jednostruka armatura, blok napona λ = 0.8, μ → ξ → z → A<sub>s</sub>, A<sub>s,min</sub>, granica ξ ≤ 0.45</span><span class="en" lang="en">rectangular section, single reinforcement, λ = 0.8 stress block, μ → ξ → z → A<sub>s</sub>, A<sub>s,min</sub>, the ξ ≤ 0.45 limit</span></td>
+            <td><span class="sr">smicanje i uzengije, T preseci, prslina i ugib po GSU, prianjanje, potisak, požar, pritisnuta armatura</span><span class="en" lang="en">shear and stirrups, T-sections, cracking and SLS deflection, anchorage, punching, fire, compression reinforcement</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr">Drvo EN 1995</span><span class="en" lang="en">Timber EN 1995</span></td>
+            <td><span class="sr">savijanje i smicanje pravougaonika, k<sub>mod</sub>, k<sub>h</sub>, γ<sub>M</sub> = 1.3 / 1.25, klase iz EN 338</span><span class="en" lang="en">bending and shear of a rectangle, k<sub>mod</sub>, k<sub>h</sub>, γ<sub>M</sub> = 1.3 / 1.25, EN 338 classes</span></td>
+            <td><span class="sr">bočna stabilnost (k<sub>crit</sub>), veze i spojna sredstva, k<sub>def</sub> i tečenje, dvoosno savijanje, zarezi</span><span class="en" lang="en">lateral stability (k<sub>crit</sub>), connections, k<sub>def</sub> and creep, biaxial bending, notches</span></td>
+          </tr>
+          <tr>
+            <td><span class="sr">Čelik EN 1993</span><span class="en" lang="en">Steel EN 1993</span></td>
+            <td><span class="sr">M<sub>c,Rd</sub> = W<sub>pl</sub>f<sub>y</sub>/γ<sub>M0</sub>, V<sub>pl,Rd</sub>, S235/S275/S355</span><span class="en" lang="en">M<sub>c,Rd</sub> = W<sub>pl</sub>f<sub>y</sub>/γ<sub>M0</sub>, V<sub>pl,Rd</sub>, S235/S275/S355</span></td>
+            <td><span class="sr">klasifikacija preseka (pretpostavlja klasu 1 ili 2), bočno-torziono izvijanje, izvijanje pritisnutih elemenata, interakcija M–V–N, veze, zamor</span><span class="en" lang="en">section classification (assumes class 1 or 2), lateral-torsional buckling, column buckling, M–V–N interaction, connections, fatigue</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p><span class="sr">Spisak u desnoj koloni nije izvinjenje nego program: svaka stavka je moguć sledeći korak pilota, i svaka traži svoj test pre nego što uđe u alat.</span>
+    <span class="en" lang="en">The right-hand column is not an apology but a roadmap: every item is a possible next step for the pilot, and every one needs its own test before it enters the tool.</span></p>
+
+    <h2><span class="sr">Kako se jezgro proverava</span><span class="en" lang="en">How the core is tested</span></h2>
+    <p><span class="sr">Jezgro (<code>assets/mehanika.js</code>) ima 77 provera u <code>tests/mehanika.test.js</code>, bez ijedne zavisnosti:</span>
+    <span class="en" lang="en">The core (<code>assets/mehanika.js</code>) carries 77 checks in <code>tests/mehanika.test.js</code>, with zero dependencies:</span></p>
+    <ul>
+      <li><span class="sr"><strong>Poznata rešenja:</strong> qL²/8, PL/4, Pab/L, qL²/2, 3qL²/32 i skok momenta jednak primenjenom momentu.</span>
+      <span class="en" lang="en"><strong>Closed-form solutions:</strong> qL²/8, PL/4, Pab/L, qL²/2, 3qL²/32, and a moment jump equal to the applied moment.</span></li>
+      <li><span class="sr"><strong>Invarijante na 200 nasumičnih greda:</strong> suma sila i suma momenata su nula, i numerički izvod momenta se slaže sa transverzalnom silom (dM/dx = V) u 1.800 tačaka. Ovo hvata greške koje poznati primeri ne hvataju, jer ne zna šta je odgovor — zna samo šta mora da važi.</span>
+      <span class="en" lang="en"><strong>Invariants on 200 random beams:</strong> sums of forces and moments vanish, and the numerical derivative of the moment matches the shear (dM/dx = V) at 1,800 points. This catches errors closed-form examples miss, because it does not know the answer — only what must hold.</span></li>
+      <li><span class="sr"><strong>Nezavisna integracija:</strong> I<sub>y</sub> T preseka se poredi sa numeričkim integraljenjem po visini u 400.000 traka, a ne sa drugom formulom.</span>
+      <span class="en" lang="en"><strong>Independent integration:</strong> the I<sub>y</sub> of a T-section is compared against numerical integration over the depth in 400,000 strips, not against another formula.</span></li>
+      <li><span class="sr"><strong>Ravnoteža preseka u EN 1992:</strong> posle proračuna armature test proverava da je sila u betonu jednaka sili u armaturi i da njihov proizvod sa krakom vraća upravo zadati M<sub>Ed</sub>. Rezultat se ne poredi sa zapamćenim brojem iz knjige nego sa fizikom.</span>
+      <span class="en" lang="en"><strong>Section equilibrium in EN 1992:</strong> after the reinforcement calculation, the test verifies that the concrete force equals the steel force and that their product with the lever arm returns exactly the given M<sub>Ed</sub>. The result is checked against physics, not against a number remembered from a book.</span></li>
+      <li><span class="sr"><strong>Granice:</strong> tri oslonca moraju da vrate <code>odredjen: false</code> sa objašnjenjem, a poziv unutrašnjih sila na takvom sistemu mora da baci grešku. Pretpostavljen W<sub>pl</sub> mora da bude označen.</span>
+      <span class="en" lang="en"><strong>Limits:</strong> three supports must return <code>odredjen: false</code> with an explanation, and asking for internal forces on such a system must throw. An assumed W<sub>pl</sub> must be flagged.</span></li>
+      <li><span class="sr"><strong>Izmerena aproksimacija:</strong> I presek bez zaobljenja daje 95.0% tabličnog I<sub>y</sub> za IPE 200; test zahteva da taj odnos ostane između 93% i 97% i da presek nosi napomenu.</span>
+      <span class="en" lang="en"><strong>Measured approximation:</strong> the fillet-free I-section yields 95.0% of the tabulated I<sub>y</sub> for IPE 200; the test requires that ratio to stay between 93% and 97% and the section to carry its note.</span></li>
+    </ul>
+    <p><span class="sr">Zadaci ne računaju tačan odgovor sopstvenom formulom nego pozivaju isto jezgro. Ako se jezgro pokvari, pašće i test i zadatak — ne mogu da se raziđu u tišini.</span>
+    <span class="en" lang="en">The task generator does not compute the correct answer with its own formula; it calls the same core. If the core breaks, both the test and the task break — they cannot drift apart silently.</span></p>
+
+    <h2><span class="sr">Izvori, sa datumom provere</span><span class="en" lang="en">Sources, with check dates</span></h2>
+    <p><span class="sr">Provereno 01.10.2026. Datum znači: tada je stranica bila dostupna i sadržaj pročitan, ne da je od tada nepromenjena.</span>
+    <span class="en" lang="en">Checked 1 October 2026. The date means the page was reachable and read then, not that it has been unchanged since.</span></p>
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th><span class="sr">Izvor</span><span class="en" lang="en">Source</span></th>
+          <th><span class="sr">Šta je odatle uzeto</span><span class="en" lang="en">What was taken</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><a href="https://engineeringstatics.org/">Engineering Statics: Open and Interactive</a><br><small>Baker &amp; Haynes, CC BY-NC-SA</small></td>
+            <td><span class="sr">uzor interaktivnog otvorenog udžbenika: zadaci sa nasumičnim brojevima, dinamičke slike, radi na telefonu. Potvrda da nasumični zadatak u pregledaču nije eksperiment nego praksa.</span>
+            <span class="en" lang="en">the model for an interactive open textbook: randomised exercises, dynamic figures, phone-friendly. Evidence that in-browser randomised tasks are established practice, not an experiment.</span></td></tr>
+          <tr><td><a href="https://learnaboutstructures.com/">learnaboutstructures.com</a><br><small>Erochko, Carleton University</small></td>
+            <td><span class="sr">struktura kursa analize konstrukcija i mesto kviza na dnu poglavlja; granica između određenih i neodređenih sistema kao nastavna tema.</span>
+            <span class="en" lang="en">the structural-analysis course arc and the end-of-section quiz pattern; determinacy versus indeterminacy as a teaching topic in its own right.</span></td></tr>
+          <tr><td><span class="sr">Statics Concept Inventory (2002) i Statics Skills Inventory (2003); radovi o greškama u dijagramu oslobođenog tela (ASEE PEER)</span><span class="en" lang="en">Statics Concept Inventory (2002) and Statics Skills Inventory (2003); papers on FBD errors (ASEE PEER)</span></td>
+            <td><span class="sr">odluka da dijagram oslobođenog tela dobije celu nedelju i da vežba bude nalaženje greške; četiri grupe veština (vektori, modelovanje, jednačine ravnoteže, sistemi sila).</span>
+            <span class="en" lang="en">the decision to give the FBD a full week and to make error-finding the tutorial; the four skill groups (vectors, modelling, equilibrium equations, force systems).</span></td></tr>
+          <tr><td><a href="https://arh.bg.ac.rs/?pismo=lat&amp;portfolio=kurs-5-1-mehanika-i-otpornost-materijala">Arhitektonski fakultet u Beogradu, kurs Mehanika i otpornost materijala</a></td>
+            <td><span class="sr">domaći format: 15 radnih nedelja, kolokvijumi tokom semestra, raspodela poena (ovde 30 predispitnih + 70, kod njih 30–70). Naša raspodela je prilagođena, ne prepisana.</span>
+            <span class="en" lang="en">the local format: 15 teaching weeks, in-term tests, point split (30 coursework + 70 exam here; 30–70 there). Our split is adapted, not copied.</span></td></tr>
+          <tr><td><span class="sr">Građevinski fakultet u Beogradu, Katedra za tehničku mehaniku i teoriju konstrukcija; Otpornost materijala 1/2</span><span class="en" lang="en">University of Belgrade Faculty of Civil Engineering, Dept. of Technical Mechanics and Theory of Structures; Strength of Materials 1/2</span></td>
+            <td><span class="sr">redosled predmeta u domaćem programu: tehnička mehanika → otpornost materijala → statika konstrukcija → stabilnost i dinamika. Naš pilot pokriva prva dva i ulaz u treći.</span>
+            <span class="en" lang="en">the local course order: technical mechanics → strength of materials → structural statics → stability and dynamics. This pilot covers the first two and the entry to the third.</span></td></tr>
+          <tr><td><span class="sr"><a href="https://www.paragraf.rs/propisi/pravilnik-za-gradjevinske-konstrukcije.html">Pravilnik za građevinske konstrukcije</a> (Sl. glasnik RS 89/2019, 52/2020, 122/2020); <a href="https://iss.rs/sr_Cyrl/project/show/iss:proj:29783">SRPS EN 1992-1-1:2015</a></span><span class="en" lang="en"><a href="https://www.paragraf.rs/propisi/pravilnik-za-gradjevinske-konstrukcije.html">Serbian Regulation on Building Structures</a> (Off. Gazette 89/2019, 52/2020, 122/2020); <a href="https://iss.rs/sr_Cyrl/project/show/iss:proj:29783">SRPS EN 1992-1-1:2015</a></span></td>
+            <td><span class="sr">činjenica da se u Srbiji projektuje po SRPS EN 1990, 1991, 1992, 1997 i 1998 sa nacionalnim prilozima. Zato alat kaže koje koeficijente koristi i upozorava da prilog može propisati druge.</span>
+            <span class="en" lang="en">the fact that design in Serbia follows SRPS EN 1990, 1991, 1992, 1997 and 1998 with national annexes. Hence the tool states which partial factors it uses and warns that an annex may prescribe others.</span></td></tr>
+          <tr><td><a href="https://www.theconcreteinitiative.eu/images/ECP_Documents/Eurocode2_WorkedExamples.pdf">Eurocode 2 Worked Examples</a> (CEN TC250/SC2); <a href="https://www.makico.net/wp-content/uploads/2023/10/Steel-Building-Design-Worked-examples-for-students.pdf">SCI P387</a>; <a href="https://www.gf.uns.ac.rs/~zbornik/eludzbenik/Goles_Betonske%20konstrukcije%201.pdf">Goleš, Betonske konstrukcije 1</a> (GF Subotica, otvoren e-udžbenik)</td>
+            <td><span class="sr">poredak koraka u dimenzionisanju i domaća terminologija; potvrda da su rešeni primeri za studente standardan oblik građe u ovoj oblasti.</span>
+            <span class="en" lang="en">the order of design steps and the Serbian terminology; confirmation that student worked examples are the standard material form in this field.</span></td></tr>
+          <tr><td><a href="https://github.com/rasimtemur/vetin-beam">vetin-beam</a> (MIT), <span class="sr">pregledani JS rešavači greda</span><span class="en" lang="en">reviewed JS beam solvers</span></td>
+            <td><span class="sr">dokaz da rešavač greda u pregledaču radi i bez servera. Kod nije uzet: naše jezgro je napisano od nule da bi testovi i konvencija znaka bili naši i da bi se moglo braniti pred studentom red po red.</span>
+            <span class="en" lang="en">proof that a browser-side beam solver works without a server. No code was taken: our core is written from scratch so the tests and the sign convention are ours and can be defended line by line in front of a student.</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="sr">Pošten sud o ovom pilotu</span><span class="en" lang="en">Honest verdict on this pilot</span></h2>
+    <p><span class="sr"><strong>Provereno:</strong> jezgro proračuna, sa 77 automatskih provera uključujući invarijante na nasumičnim gredama i ravnotežu preseka; materijalne tablice (EN 1992 tab. 3.1, EN 1993 tab. 3.1, EN 338, EN 1995 tab. 3.1) upisane su ručno iz standardne literature i proverene kroz te testove samo u pogledu doslednosti, ne prema overenom tekstu standarda.</span>
+    <span class="en" lang="en"><strong>Verified:</strong> the calculation core, with 77 automatic checks including random-beam invariants and section equilibrium; the material tables (EN 1992 Tab. 3.1, EN 1993 Tab. 3.1, EN 338, EN 1995 Tab. 3.1) were entered by hand from standard literature and are checked by those tests only for internal consistency, not against a certified copy of the standard.</span></p>
+    <p><span class="sr"><strong>Zaključeno, ne izmereno:</strong> da program od 15 nedelja odgovara domaćem formatu — to je zaključak iz javnih stranica dva fakulteta, a ne iz zvaničnog silabusa predmeta koji prof. Darinka vodi. Pilot zato namerno ne tvrdi da je usklađen sa konkretnim akreditovanim predmetom: to je prvi razgovor koji sledi.</span>
+    <span class="en" lang="en"><strong>Inferred, not measured:</strong> that the 15-week programme matches the local format — that is an inference from the public pages of two faculties, not from the official syllabus of the course Prof. Darinka teaches. The pilot therefore deliberately does not claim alignment with a specific accredited course: that is the first conversation to have.</span></p>
+    <p><span class="sr"><strong>Nije gledano:</strong> zvanični nacionalni prilozi (plaćen pristup preko ISS), tačne vrednosti α<sub>cc</sub> i ψ koeficijenata iz priloga za Srbiju, tablični W<sub>pl</sub> i zaobljenja valjanih profila, i ponašanje sajta na čitaču ekrana. Ništa od toga nije prepreka za probni čas; sve je prepreka za tvrdnju „usklađeno sa standardom".</span>
+    <span class="en" lang="en"><strong>Not examined:</strong> the official national annexes (paywalled via the national standards body), the exact α<sub>cc</sub> and ψ values in the Serbian annexes, tabulated W<sub>pl</sub> and fillet geometry of rolled profiles, and screen-reader behaviour. None of this blocks a trial lecture; all of it blocks the claim "standard-compliant".</span></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/3esign/mechanics-lab">GitHub</a> · <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a> · CC BY-SA 4.0 + MIT</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

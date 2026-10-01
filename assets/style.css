@@ -1,0 +1,183 @@
+/* Mechanics Lab — jedan list stila. Bez zavisnosti, bez okvira.
+   Mobilni je polazna sirina; veci ekran samo dobija prostor. */
+
+:root {
+  --papir: #f7f5f0;
+  --papir-2: #ffffff;
+  --mastilo: #16161a;
+  --mastilo-2: #4a4a52;
+  --linija: #d9d4c8;
+  --akcent: #b1442a;      /* zategnuto */
+  --akcent-2: #1f5f7a;    /* pritisnuto */
+  --ok: #2d6a4f;
+  --pad: #9a2a2a;
+  --mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --papir: #14151a;
+    --papir-2: #1c1e25;
+    --mastilo: #eceae4;
+    --mastilo-2: #a8a6a0;
+    --linija: #343843;
+    --akcent: #e0714f;
+    --akcent-2: #68b2d4;
+    --ok: #6ec49a;
+    --pad: #e2766f;
+  }
+}
+
+* { box-sizing: border-box; }
+/* [hidden] mora da pobedi display iz pravila ispod: .ctl label je display:block,
+   pa bi bez ovoga skrivena polja ostala na ekranu (uhvaceno snimkom, 01.10.2026). */
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--papir); color: var(--mastilo);
+  font: 16px/1.6 var(--sans);
+  font-feature-settings: "tnum" 1;
+}
+.wrap { width: 100%; max-width: 70rem; margin: 0 auto; padding: 0 1rem; }
+
+/* ---- zaglavlje ---- */
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 0.5rem; top: 0.5rem; z-index: 50; background: var(--papir-2);
+  padding: 0.5rem 0.75rem; border: 2px solid var(--akcent); border-radius: var(--r); }
+header.top { position: sticky; top: 0; z-index: 20; background: var(--papir);
+  border-bottom: 1px solid var(--linija); }
+.bar { display: flex; align-items: center; gap: 0.5rem; min-height: 3.25rem; flex-wrap: wrap; }
+.brand { font-weight: 700; letter-spacing: -0.01em; text-decoration: none; color: var(--mastilo);
+  font-size: 1.05rem; }
+.brand span { color: var(--akcent); }
+header nav { display: flex; gap: 0.1rem; flex: 1 1 100%; overflow-x: auto;
+  scrollbar-width: none; padding-bottom: 0.35rem; }
+header nav::-webkit-scrollbar { display: none; }
+header nav a { color: var(--mastilo-2); text-decoration: none; padding: 0.35rem 0.55rem;
+  border-radius: 999px; font-size: 0.9rem; white-space: nowrap; }
+header nav a:hover { background: var(--papir-2); color: var(--mastilo); }
+header nav a[aria-current="page"] { background: var(--mastilo); color: var(--papir); }
+#langToggle { margin-left: auto; font: inherit; font-size: 0.85rem; cursor: pointer;
+  background: var(--papir-2); color: var(--mastilo); border: 1px solid var(--linija);
+  border-radius: 999px; padding: 0.3rem 0.7rem; }
+@media (min-width: 46rem) {
+  header nav { flex: 1 1 auto; overflow: visible; padding-bottom: 0; }
+}
+
+/* ---- jezik ---- */
+body.lang-sr .en { display: none; }
+body.lang-en .sr { display: none; }
+
+/* ---- tipografija ---- */
+main { padding-bottom: 4rem; }
+h1 { font-size: clamp(1.6rem, 5.5vw, 2.6rem); line-height: 1.15; letter-spacing: -0.02em;
+  margin: 1.6rem 0 0.75rem; }
+h2 { font-size: clamp(1.2rem, 3.6vw, 1.55rem); line-height: 1.25; margin: 2.2rem 0 0.6rem;
+  letter-spacing: -0.01em; }
+h3 { font-size: 1.05rem; margin: 1.4rem 0 0.4rem; }
+p { margin: 0.6rem 0; max-width: 42rem; }
+.lead { font-size: 1.08rem; color: var(--mastilo-2); max-width: 44rem; }
+em { color: var(--akcent); font-style: normal; }
+a { color: var(--akcent-2); }
+code, .num { font-family: var(--mono); font-size: 0.93em; }
+small { color: var(--mastilo-2); }
+hr { border: 0; border-top: 1px solid var(--linija); margin: 2rem 0; }
+
+/* ---- dugmad ---- */
+.btn { display: inline-block; background: var(--mastilo); color: var(--papir);
+  text-decoration: none; padding: 0.6rem 1rem; border-radius: var(--r); font-weight: 600;
+  border: 1px solid var(--mastilo); font-size: 0.95rem; cursor: pointer; font-family: inherit; }
+.btn.ghost { background: transparent; color: var(--mastilo); border-color: var(--linija); }
+.btn:hover { opacity: 0.88; }
+.actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0; }
+
+/* ---- kartice i mreza ---- */
+.grid { display: grid; gap: 0.85rem; grid-template-columns: 1fr; margin: 1.2rem 0; }
+@media (min-width: 40rem) { .grid.g2 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 56rem) { .grid.g3 { grid-template-columns: repeat(3, 1fr); } }
+.card { background: var(--papir-2); border: 1px solid var(--linija); border-radius: var(--r);
+  padding: 1rem; }
+.card h3 { margin-top: 0; }
+.card p { margin-bottom: 0; }
+.card .tag { display: inline-block; font-family: var(--mono); font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.06em; color: var(--akcent);
+  border: 1px solid var(--linija); border-radius: 999px; padding: 0.1rem 0.5rem;
+  margin-bottom: 0.5rem; }
+
+/* ---- instrument (laboratorija) ---- */
+.instrument { background: var(--papir-2); border: 1px solid var(--linija);
+  border-radius: var(--r); padding: 1rem; margin: 1.2rem 0; }
+.instrument > h2 { margin-top: 0; }
+.ctl { display: grid; gap: 0.7rem; grid-template-columns: 1fr 1fr; margin: 0.8rem 0; }
+@media (min-width: 40rem) { .ctl { grid-template-columns: repeat(4, 1fr); } }
+.ctl label { display: block; font-size: 0.8rem; color: var(--mastilo-2); }
+/* Bez min-width: 0 najduza <option> siri kolonu mreze i cela strana izadje
+   van sirine telefona (uhvaceno snimkom na 420 px, 01.10.2026). */
+.ctl > label, .ctl input, .ctl select { min-width: 0; max-width: 100%; }
+.ctl input, .ctl select {
+  width: 100%; font: inherit; font-family: var(--mono); font-size: 0.95rem;
+  padding: 0.45rem 0.5rem; margin-top: 0.2rem;
+  background: var(--papir); color: var(--mastilo);
+  border: 1px solid var(--linija); border-radius: 8px;
+}
+.ctl input[type="range"] { padding: 0; }
+canvas { width: 100%; height: auto; display: block; background: var(--papir);
+  border: 1px solid var(--linija); border-radius: 8px; touch-action: pan-y; }
+
+/* ---- izlaz / brojevi ---- */
+.izlaz { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.8rem 0 0; padding: 0; list-style: none; }
+.izlaz li { background: var(--papir); border: 1px solid var(--linija); border-radius: 8px;
+  padding: 0.4rem 0.6rem; font-family: var(--mono); font-size: 0.85rem; }
+/* BEZ text-transform: u mehanici f_cd i F_cd, i i I, x i X nisu isti pojam.
+   Snimak 01.10.2026 je pokazao 'FCD' i 'Ξ = X/D' na ekranu. */
+.izlaz li b { display: block; font-family: var(--sans); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.02em; color: var(--mastilo-2); }
+.izlaz li.good { border-color: var(--ok); }
+.izlaz li.bad { border-color: var(--pad); }
+.presuda { margin-top: 0.8rem; padding: 0.7rem 0.85rem; border-radius: 8px;
+  border-left: 3px solid var(--linija); background: var(--papir); font-size: 0.95rem; }
+.presuda:empty { display: none; }
+.presuda.good { border-left-color: var(--ok); }
+.presuda.bad { border-left-color: var(--pad); }
+
+/* ---- tabela ---- */
+.tabela { width: 100%; overflow-x: auto; margin: 1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; min-width: 32rem; }
+th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--linija);
+  vertical-align: top; }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mastilo-2); }
+td.n, th.n { font-family: var(--mono); text-align: right; white-space: nowrap; }
+
+/* ---- nedelje ---- */
+.nedelja { border: 1px solid var(--linija); border-radius: var(--r); background: var(--papir-2);
+  margin: 0.7rem 0; }
+.nedelja > summary { cursor: pointer; padding: 0.8rem 1rem; font-weight: 600;
+  display: flex; gap: 0.6rem; align-items: baseline; }
+.nedelja > summary::marker { color: var(--akcent); }
+.nedelja .broj { font-family: var(--mono); color: var(--akcent); font-size: 0.85rem; }
+.nedelja .telo { padding: 0 1rem 1rem; border-top: 1px solid var(--linija); }
+.nedelja .telo p:first-child { margin-top: 0.8rem; }
+
+/* ---- zadaci ---- */
+.zadatak { background: var(--papir-2); border: 1px solid var(--linija); border-radius: var(--r);
+  padding: 1rem; margin: 1rem 0; }
+.zadatak .tekst { font-size: 1.02rem; }
+.odgovor { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: flex-end; margin-top: 0.8rem; }
+.odgovor label { font-size: 0.8rem; color: var(--mastilo-2); }
+.odgovor input { font-family: var(--mono); font-size: 1rem; padding: 0.45rem 0.5rem;
+  width: 7.5rem; background: var(--papir); color: var(--mastilo);
+  border: 1px solid var(--linija); border-radius: 8px; }
+.koraci { margin-top: 0.8rem; font-size: 0.92rem; }
+.koraci ol { padding-left: 1.2rem; }
+.koraci li { margin: 0.3rem 0; }
+.brojac { font-family: var(--mono); font-size: 0.85rem; color: var(--mastilo-2); }
+
+/* ---- fokus i pokret ---- */
+:focus-visible { outline: 3px solid var(--akcent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+footer { border-top: 1px solid var(--linija); padding: 1.5rem 0 3rem; color: var(--mastilo-2);
+  font-size: 0.88rem; }
+footer a { color: var(--mastilo-2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

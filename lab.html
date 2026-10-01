@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorija — Mechanics Lab</title>
+<meta name="description" content="Three live instruments: beam reactions and V/M diagrams, section properties, and Eurocode design checks for concrete, timber and steel.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-sr">
+<a class="skip" href="#main"><span class="sr">Preskoči na sadržaj</span><span class="en" lang="en">Skip to content</span></a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Mechanics <span>Lab</span></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html"><span class="sr">Početna</span><span class="en" lang="en">Home</span></a>
+      <a href="program.html"><span class="sr">Program</span><span class="en" lang="en">Programme</span></a>
+      <a href="lab.html"><span class="sr">Laboratorija</span><span class="en" lang="en">Lab</span></a>
+      <a href="zadaci.html"><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></a>
+      <a href="metod.html"><span class="sr">Metod</span><span class="en" lang="en">Method</span></a>
+      <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a>
+    </nav>
+    <button id="langToggle" type="button" lang="en">English</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1><span class="sr">Laboratorija</span><span class="en" lang="en">The lab</span></h1>
+    <p class="lead"><span class="sr">Tri instrumenta. Svaki broj se računa u tvom pregledaču, u trenutku, iz istog jezgra koje proveravaju testovi. Ništa se ne šalje nikuda.</span>
+    <span class="en" lang="en">Three instruments. Every number is computed in your browser, live, from the same core the tests check. Nothing is sent anywhere.</span></p>
+
+    <!-- ============ 1. GREDA ============ -->
+    <section class="instrument" aria-labelledby="h-greda">
+      <h2 id="h-greda"><span class="sr">1 · Greda: reakcije i dijagrami</span><span class="en" lang="en">1 · Beam: reactions and diagrams</span></h2>
+      <div class="ctl">
+        <label><span class="sr">Statički sistem</span><span class="en" lang="en">Structural system</span>
+          <select id="sistem">
+            <option value="prosta">prosta greda / simply supported</option>
+            <option value="konzola">konzola / cantilever</option>
+            <option value="prepust">greda sa prepustima / overhanging</option>
+          </select>
+        </label>
+        <label>L [m]
+          <input id="L" type="number" value="6" min="1" max="20" step="0.5">
+        </label>
+        <label><span class="sr">Opterećenje</span><span class="en" lang="en">Load</span>
+          <select id="tipOpterecenja">
+            <option value="udl">q — ravnomerno / uniform</option>
+            <option value="point">P — koncentrisano / point</option>
+            <option value="oba">q + P</option>
+          </select>
+        </label>
+        <label data-opt="udl">q [kN/m]
+          <input id="q" type="number" value="10" min="0" max="200" step="1">
+        </label>
+        <label data-opt="point" hidden>P [kN]
+          <input id="P" type="number" value="20" min="0" max="500" step="5">
+        </label>
+        <label data-opt="point" hidden>x<sub>P</sub> [m]
+          <input id="xP" type="number" value="3" min="0" max="20" step="0.25">
+        </label>
+      </div>
+      <canvas id="cGreda" aria-label="Skica nosača sa dijagramima transverzalnih sila i momenata" role="img"></canvas>
+      <ul class="izlaz" id="izlazGreda"></ul>
+      <p><small><span class="sr">Znak: opterećenje nadole je pozitivno, reakcija nagore je pozitivna. Pozitivan moment znači zategnuto donje vlakno i crta se ispod ose, na zategnutoj strani.</span>
+      <span class="en" lang="en">Sign convention: downward load positive, upward reaction positive. A positive moment means the bottom fibre is in tension and is plotted below the axis, on the tension side.</span></small></p>
+    </section>
+
+    <!-- ============ 2. PRESEK ============ -->
+    <section class="instrument" aria-labelledby="h-presek">
+      <h2 id="h-presek"><span class="sr">2 · Presek: A, I<sub>y</sub>, W<sub>y</sub></span><span class="en" lang="en">2 · Section: A, I<sub>y</sub>, W<sub>y</sub></span></h2>
+      <div class="ctl">
+        <label><span class="sr">Tip preseka</span><span class="en" lang="en">Section type</span>
+          <select id="tipPreseka">
+            <option value="pravougaonik">pravougaonik / rectangle</option>
+            <option value="krug">krug / circle</option>
+            <option value="I">I presek / I-section</option>
+            <option value="T">T presek / T-section</option>
+          </select>
+        </label>
+        <label data-pres="pravougaonik">b [mm]<input id="pb" type="number" value="200" min="10" step="10"></label>
+        <label data-pres="pravougaonik">h [mm]<input id="ph" type="number" value="400" min="10" step="10"></label>
+        <label data-pres="krug" hidden>d [mm]<input id="pd" type="number" value="300" min="10" step="10"></label>
+        <label data-pres="I" hidden>h [mm]<input id="ih" type="number" value="200" min="20" step="10"></label>
+        <label data-pres="I" hidden>b [mm]<input id="ib" type="number" value="100" min="20" step="5"></label>
+        <label data-pres="I" hidden>t<sub>w</sub> [mm]<input id="itw" type="number" value="5.6" min="1" step="0.1"></label>
+        <label data-pres="I" hidden>t<sub>f</sub> [mm]<input id="itf" type="number" value="8.5" min="1" step="0.1"></label>
+        <label data-pres="T" hidden>b<sub>f</sub> [mm]<input id="tbf" type="number" value="400" min="20" step="10"></label>
+        <label data-pres="T" hidden>h<sub>f</sub> [mm]<input id="thf" type="number" value="100" min="10" step="10"></label>
+        <label data-pres="T" hidden>b<sub>w</sub> [mm]<input id="tbw" type="number" value="150" min="10" step="10"></label>
+        <label data-pres="T" hidden>h<sub>w</sub> [mm]<input id="thw" type="number" value="300" min="10" step="10"></label>
+      </div>
+      <canvas id="cPresek" aria-label="Skica poprečnog preseka sa položajem težišta" role="img"></canvas>
+      <ul class="izlaz" id="izlazPresek"></ul>
+      <p><small id="napomenaPresek"></small></p>
+      <p class="actions"><button class="btn ghost" id="uzmiW" type="button" disabled><span class="sr">Pošalji W<sub>y</sub> u dimenzionisanje (čelik)</span><span class="en" lang="en">Send W<sub>y</sub> to design (steel)</span></button></p>
+    </section>
+
+    <!-- ============ 3. DIMENZIONISANJE ============ -->
+    <section class="instrument" aria-labelledby="h-dim">
+      <h2 id="h-dim"><span class="sr">3 · Dimenzionisanje po Evrokodu</span><span class="en" lang="en">3 · Eurocode design check</span></h2>
+      <p class="actions"><button class="btn ghost" id="uzmiM" type="button" disabled><span class="sr">Uzmi M<sub>max</sub> i V<sub>max</sub> iz grede</span><span class="en" lang="en">Take M<sub>max</sub> and V<sub>max</sub> from the beam</span></button></p>
+      <div class="ctl">
+        <label><span class="sr">Materijal</span><span class="en" lang="en">Material</span>
+          <select id="materijal">
+            <option value="beton">beton / concrete — EN 1992</option>
+            <option value="drvo">drvo / timber — EN 1995</option>
+            <option value="celik">čelik / steel — EN 1993</option>
+          </select>
+        </label>
+        <label>M<sub>Ed</sub> [kNm]<input id="MEd" type="number" value="45" min="0" step="1"></label>
+        <label>V<sub>Ed</sub> [kN]<input id="VEd" type="number" value="30" min="0" step="1"></label>
+
+        <label data-mat="beton"><span class="sr">Klasa betona</span><span class="en" lang="en">Concrete class</span>
+          <select id="klasaBetona">
+            <option>C16/20</option><option>C20/25</option><option selected>C25/30</option>
+            <option>C30/37</option><option>C35/45</option><option>C40/50</option>
+          </select>
+        </label>
+        <label data-mat="beton">b [mm]<input id="cb" type="number" value="300" min="100" step="10"></label>
+        <label data-mat="beton">d [mm]<input id="cd" type="number" value="450" min="100" step="10"></label>
+
+        <label data-mat="drvo" hidden><span class="sr">Klasa drveta</span><span class="en" lang="en">Timber class</span>
+          <select id="klasaDrveta">
+            <option>C16</option><option selected>C24</option><option>C30</option><option>GL24h</option>
+          </select>
+        </label>
+        <label data-mat="drvo" hidden><span class="sr">Klasa eksploatacije</span><span class="en" lang="en">Service class</span>
+          <select id="klasaEksp"><option>1</option><option>2</option><option>3</option></select>
+        </label>
+        <label data-mat="drvo" hidden><span class="sr">Trajanje opterećenja</span><span class="en" lang="en">Load duration</span>
+          <select id="trajanje">
+            <option value="trajno">trajno / permanent</option>
+            <option value="dugotrajno">dugotrajno / long-term</option>
+            <option value="srednje" selected>srednje / medium-term</option>
+            <option value="kratkotrajno">kratkotrajno / short-term</option>
+            <option value="trenutno">trenutno / instantaneous</option>
+          </select>
+        </label>
+        <label data-mat="drvo" hidden>b [mm]<input id="db" type="number" value="100" min="20" step="10"></label>
+        <label data-mat="drvo" hidden>h [mm]<input id="dh" type="number" value="200" min="20" step="10"></label>
+
+        <label data-mat="celik" hidden><span class="sr">Klasa čelika</span><span class="en" lang="en">Steel grade</span>
+          <select id="klasaCelika"><option selected>S235</option><option>S275</option><option>S355</option></select>
+        </label>
+        <label data-mat="celik" hidden>W<sub>pl</sub> [cm³]<input id="Wpl" type="number" value="220" min="1" step="10"></label>
+        <label data-mat="celik" hidden>A<sub>v</sub> [cm²]<input id="Av" type="number" value="14" min="1" step="1"></label>
+      </div>
+      <ul class="izlaz" id="izlazDim"></ul>
+      <p class="presuda" id="presudaDim"></p>
+      <p><small><span class="sr">Parcijalni koeficijenti: γ<sub>C</sub> = 1.5, γ<sub>S</sub> = 1.15, γ<sub>M0</sub> = 1.0, γ<sub>M</sub> = 1.3 (puno drvo) ili 1.25 (lamelirano). Za beton je uzeto α<sub>cc</sub> = 0.85. Nacionalni prilog može propisati druge vrednosti — proveri važeći prilog pre upotrebe u nastavi.</span>
+      <span class="en" lang="en">Partial factors: γ<sub>C</sub> = 1.5, γ<sub>S</sub> = 1.15, γ<sub>M0</sub> = 1.0, γ<sub>M</sub> = 1.3 (solid timber) or 1.25 (glulam). For concrete α<sub>cc</sub> = 0.85 is used. A national annex may prescribe other values — check the applicable annex before teaching from these numbers.</span></small></p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/3esign/mechanics-lab">GitHub</a> · <a href="metod.html"><span class="sr">Metod i izvori</span><span class="en" lang="en">Method and sources</span></a> · CC BY-SA 4.0 + MIT</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/mehanika.js"></script>
+<script src="assets/lab.js"></script>
+</body>
+</html>

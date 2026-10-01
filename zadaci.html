@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zadaci — Mechanics Lab</title>
+<meta name="description" content="Randomised mechanics tasks with instant checking and worked steps: reactions, diagrams, section properties, stresses and Eurocode design.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-sr">
+<a class="skip" href="#main"><span class="sr">Preskoči na sadržaj</span><span class="en" lang="en">Skip to content</span></a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Mechanics <span>Lab</span></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html"><span class="sr">Početna</span><span class="en" lang="en">Home</span></a>
+      <a href="program.html"><span class="sr">Program</span><span class="en" lang="en">Programme</span></a>
+      <a href="lab.html"><span class="sr">Laboratorija</span><span class="en" lang="en">Lab</span></a>
+      <a href="zadaci.html"><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></a>
+      <a href="metod.html"><span class="sr">Metod</span><span class="en" lang="en">Method</span></a>
+      <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a>
+    </nav>
+    <button id="langToggle" type="button" lang="en">English</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></h1>
+    <p class="lead"><span class="sr">Brojevi su novi u svakom zadatku, a tačan odgovor računa isto jezgro koje radi u laboratoriji. Dozvoljeno odstupanje je 2%, da zaokruživanje ne bude kazna. Koraci se vide i pre i posle odgovora — ovde se uči, ne ocenjuje.</span>
+    <span class="en" lang="en">Every task gets fresh numbers, and the correct answer is computed by the same core that runs the lab. Tolerance is 2%, so rounding is not punished. Steps are available before and after you answer — this is for learning, not grading.</span></p>
+
+    <div class="ctl">
+      <label><span class="sr">Nivo</span><span class="en" lang="en">Level</span>
+        <select id="nivo">
+          <option value="svi">svi / all</option>
+          <option value="1">1 — statika / statics</option>
+          <option value="2">2 — preseci i naponi / sections and stresses</option>
+          <option value="3">3 — dimenzionisanje / design</option>
+        </select>
+      </label>
+    </div>
+
+    <section class="zadatak" aria-labelledby="h-zad">
+      <h2 id="h-zad" class="sr-only">Zadatak</h2>
+      <p class="tekst" id="zadatakTekst"></p>
+      <div class="odgovor">
+        <label for="polje"><span class="sr">Tvoj odgovor</span><span class="en" lang="en">Your answer</span><br>
+          <input id="polje" type="text" inputmode="decimal" autocomplete="off" spellcheck="false">
+        </label>
+        <span class="num" id="jedinica" aria-live="polite"></span>
+        <button class="btn" id="proveri" type="button"><span class="sr">Proveri</span><span class="en" lang="en">Check</span></button>
+        <button class="btn ghost" id="pokaziKorake" type="button"><span class="sr">Koraci</span><span class="en" lang="en">Steps</span></button>
+        <button class="btn ghost" id="novi" type="button"><span class="sr">Novi zadatak</span><span class="en" lang="en">New task</span></button>
+      </div>
+      <p class="presuda" id="presudaZad" aria-live="polite"></p>
+      <div class="koraci" id="koraci" hidden></div>
+    </section>
+
+    <p class="brojac" id="brojac" aria-live="polite"></p>
+    <p><button class="btn ghost" id="resetuj" type="button"><span class="sr">Obriši brojač</span><span class="en" lang="en">Clear score</span></button></p>
+
+    <h2><span class="sr">Odakle dolaze zadaci</span><span class="en" lang="en">Where the tasks come from</span></h2>
+    <div class="tabela">
+      <table>
+        <thead><tr>
+          <th><span class="sr">Nivo</span><span class="en" lang="en">Level</span></th>
+          <th><span class="sr">Tip zadatka</span><span class="en" lang="en">Task type</span></th>
+          <th><span class="sr">Nedelja programa</span><span class="en" lang="en">Course week</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td>reakcije pod q · reakcije pod P · M<sub>max</sub> proste grede · moment u ukleštenju konzole</td><td class="n">2–5</td></tr>
+          <tr><td class="n">2</td><td>W<sub>y</sub> pravougaonika · napon σ = M/W · kombinacija 1.35G + 1.5Q</td><td class="n">7–11</td></tr>
+          <tr><td class="n">3</td><td>A<sub>s</sub> po EN 1992 · f<sub>m,d</sub> po EN 1995 · M<sub>c,Rd</sub> po EN 1993 · ugib 5qL⁴/384EI</td><td class="n">12–15</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><small><span class="sr">Brojač tačnih odgovora stoji u <code>localStorage</code> tvog pregledača. Ništa ne izlazi sa uređaja i nijedan nastavnik to ne vidi.</span>
+    <span class="en" lang="en">The score counter lives in your browser's <code>localStorage</code>. Nothing leaves your device and no teacher can see it.</span></small></p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/3esign/mechanics-lab">GitHub</a> · <a href="metod.html"><span class="sr">Metod i izvori</span><span class="en" lang="en">Method and sources</span></a> · CC BY-SA 4.0 + MIT</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script src="assets/mehanika.js"></script>
+<script src="assets/zadaci.js"></script>
+</body>
+</html>

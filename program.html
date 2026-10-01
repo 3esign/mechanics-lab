@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Program — Mechanics Lab</title>
+<meta name="description" content="A 15-week syllabus for engineering mechanics in civil engineering: statics, strength of materials, and design of concrete, timber and steel to the Eurocodes, with learning outcomes and assessment.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="lang-sr">
+<a class="skip" href="#main"><span class="sr">Preskoči na sadržaj</span><span class="en" lang="en">Skip to content</span></a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html">Mechanics <span>Lab</span></a>
+    <nav aria-label="Glavna navigacija">
+      <a href="index.html"><span class="sr">Početna</span><span class="en" lang="en">Home</span></a>
+      <a href="program.html"><span class="sr">Program</span><span class="en" lang="en">Programme</span></a>
+      <a href="lab.html"><span class="sr">Laboratorija</span><span class="en" lang="en">Lab</span></a>
+      <a href="zadaci.html"><span class="sr">Zadaci</span><span class="en" lang="en">Tasks</span></a>
+      <a href="metod.html"><span class="sr">Metod</span><span class="en" lang="en">Method</span></a>
+      <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a>
+    </nav>
+    <button id="langToggle" type="button" lang="en">English</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <h1><span class="sr">Program: petnaest nedelja</span><span class="en" lang="en">Programme: fifteen weeks</span></h1>
+    <p class="lead"><span class="sr">Luk je jedan: od sile do dimenzionisane grede. Prvih šest nedelja je statika, sledećih pet otpornost materijala, poslednje četiri su beton, drvo i čelik po Evrokodu. Petnaesta nedelja uzima jednu istu gredu i dimenzioniše je u sva tri materijala, da student vidi koliko materijal menja presek, a koliko ne menja mehaniku.</span>
+    <span class="en" lang="en">One arc: from a force to a designed beam. Six weeks of statics, five of strength of materials, four of concrete, timber and steel to the Eurocodes. Week fifteen takes a single beam and designs it in all three materials, so students see how much the material changes the section and how little it changes the mechanics.</span></p>
+
+    <h2><span class="sr">Okvir predmeta</span><span class="en" lang="en">Course frame</span></h2>
+    <div class="tabela">
+      <table>
+        <tbody>
+          <tr><th><span class="sr">Nastava</span><span class="en" lang="en">Contact hours</span></th>
+            <td><span class="sr">15 nedelja · 2 časa predavanja + 2 časa vežbi nedeljno</span><span class="en" lang="en">15 weeks · 2 h lecture + 2 h tutorial per week</span></td></tr>
+          <tr><th>ESPB / ECTS</th><td class="n">6</td></tr>
+          <tr><th><span class="sr">Predznanje</span><span class="en" lang="en">Prerequisites</span></th>
+            <td><span class="sr">vektori, trigonometrija, osnovni integral; bez predznanja iz mehanike</span><span class="en" lang="en">vectors, trigonometry, basic integration; no prior mechanics</span></td></tr>
+          <tr><th><span class="sr">Predispitne obaveze</span><span class="en" lang="en">Coursework</span></th>
+            <td><span class="sr">dva kolokvijuma (nedelje 7 i 14) po 20 poena, 10 poena domaći zadaci iz generatora, 50 poena ispit</span><span class="en" lang="en">two in-term tests (weeks 7 and 14) at 20 points each, 10 points for generated homework, 50 points final exam</span></td></tr>
+          <tr><th><span class="sr">Alat na času</span><span class="en" lang="en">Tool in class</span></th>
+            <td><span class="sr"><a href="lab.html">laboratorija</a> na projektoru i na telefonu; <a href="zadaci.html">zadaci</a> sa novim brojevima</span><span class="en" lang="en"><a href="lab.html">the lab</a> on the projector and on phones; <a href="zadaci.html">tasks</a> with fresh numbers</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2><span class="sr">Ishodi učenja</span><span class="en" lang="en">Learning outcomes</span></h2>
+    <p><span class="sr">Posle petnaest nedelja student ume da:</span><span class="en" lang="en">After fifteen weeks a student can:</span></p>
+    <ol>
+      <li><span class="sr">nacrta tačan dijagram oslobođenog tela i prepozna sopstvenu grešku u njemu;</span><span class="en" lang="en">draw a correct free-body diagram and recognise their own error in it;</span></li>
+      <li><span class="sr">odredi reakcije i nacrta dijagrame N, V i M za statički određen nosač;</span><span class="en" lang="en">find reactions and draw N, V and M diagrams for a determinate member;</span></li>
+      <li><span class="sr">izračuna geometrijske karakteristike preseka i objasni zašto visina ulazi na kvadrat;</span><span class="en" lang="en">compute section properties and explain why depth enters squared;</span></li>
+      <li><span class="sr">poveže moment sa naponom i ugibom i proceni red veličine pre računa;</span><span class="en" lang="en">link moment to stress and deflection and estimate the order of magnitude before calculating;</span></li>
+      <li><span class="sr">dimenzioniše jednostavnu gredu u betonu, drvu i čeliku po Evrokodu i napiše šta je pretpostavio;</span><span class="en" lang="en">design a simple beam in concrete, timber and steel to the Eurocodes and state the assumptions made;</span></li>
+      <li><span class="sr">kaže gde njegov proračun prestaje da važi.</span><span class="en" lang="en">say where their own calculation stops being valid.</span></li>
+    </ol>
+    <p><span class="sr">Šesti ishod se ocenjuje. Zadatak u kome je student napisao granicu svog modela nosi više poena od zadatka sa tačnim brojem bez granice — jer inženjerska greška u praksi gotovo nikad nije aritmetička.</span>
+    <span class="en" lang="en">The sixth outcome is graded. A solution that states the limits of its model scores higher than a correct number with no stated limits — because engineering failures in practice are almost never arithmetic.</span></p>
+
+    <h2><span class="sr">Nedelje</span><span class="en" lang="en">Weeks</span></h2>
+
+    <details class="nedelja" open>
+      <summary><span class="broj">01</span><span class="sr">Sila, moment, ravnoteža</span><span class="en" lang="en">Force, moment, equilibrium</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> sila kao vektor, moment kao sila puta krak, tri jednačine ravnoteže u ravni. Znak se bira jednom i ne menja se do kraja semestra.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> force as a vector, moment as force times lever arm, three planar equilibrium equations. The sign convention is chosen once and never changed again.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> ravnoteža na stvarnim predmetima u sali — vrata na šarkama, polica, stolica. Izmeri krak metrom pre nego što napišeš jednačinu.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> equilibrium on real objects in the room — a door on hinges, a shelf, a chair. Measure the lever arm with a tape before writing the equation.</span></p>
+        <p><small><span class="sr">Laboratorija: instrument 1, pomeri silu i gledaj reakcije.</span><span class="en" lang="en">Lab: instrument 1, move the load and watch the reactions.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">02</span><span class="sr">Oslonci i statička određenost</span><span class="en" lang="en">Supports and determinacy</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> pokretni oslonac, nepokretni oslonac, ukleštenje; broj nepoznatih prema broju jednačina. Kad je sistem statički neodređen, student to prepoznaje u prvom redu rešenja, a ne na kraju.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> roller, pin, fixed end; unknowns versus equations. When a system is indeterminate, the student recognises it in the first line of the solution, not at the end.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> isti nosač, četiri rasporeda oslonaca. Dva su rešiva ručno, jedan je labilan, jedan je neodređen — razvrstaj ih prije računa.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> one member, four support layouts. Two are solvable by hand, one is a mechanism, one is indeterminate — classify them before calculating.</span></p>
+        <p><small><span class="sr">Laboratorija: dodaj treći oslonac i pročitaj poruku rešavača. Alat kaže „ne umem", ne izmišlja broj.</span><span class="en" lang="en">Lab: add a third support and read the solver message. The tool says "I cannot", it does not invent a number.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">03</span><span class="sr">Dijagram oslobođenog tela</span><span class="en" lang="en">The free-body diagram</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> izolovati telo, zameniti svaki oslonac silom, ne nacrtati ni jednu silu koju telo samo proizvodi. Ova nedelja je najvažnija u semestru: istraživanja u nastavi mehanike dosledno nalaze da greška u dijagramu oslobođenog tela nosi greške kroz ceo kurs.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> isolate the body, replace every support with a force, draw no force the body exerts on itself. This is the most important week of the term: engineering-education research consistently finds that FBD errors propagate through the whole course.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> nastavnik deli četiri dijagrama od kojih tri imaju po jednu grešku; studenti ih nalaze i imenuju. Mnemonik: telo — reakcije — spoljne sile — osa — dimenzije.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> four diagrams handed out, three with one error each; students find and name them. Mnemonic: body — reactions — external forces — axes — dimensions.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">04</span><span class="sr">Dijagrami V i M: prosta greda</span><span class="en" lang="en">V and M diagrams: simply supported beam</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> V kao zbir sila levo od reza, M kao zbir momenata levo od reza. Veza dV/dx = −q i dM/dx = V, i šta ona znači na slici: tamo gde je V = 0, moment ima vrh.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> V as the sum of forces left of the cut, M as the sum of moments left of the cut. The relations dV/dx = −q and dM/dx = V, and what they mean on the plot: where V = 0, the moment peaks.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> qL²/8 i PL/4 se izvode, ne pamte. Student koji zna izvod ne pogreši kad opterećenje nije simetrično.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> qL²/8 and PL/4 are derived, not memorised. A student who can derive them does not fail when the load is not symmetric.</span></p>
+        <p><small><span class="sr">Laboratorija: povuci P duž raspona i gledaj kako vrh momenta prati nulu transverzalne sile.</span><span class="en" lang="en">Lab: move P along the span and watch the moment peak follow the zero of shear.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">05</span><span class="sr">Konzola, prepust, skokovi</span><span class="en" lang="en">Cantilever, overhang, jumps</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> negativan moment i zategnuto gornje vlakno; skok u V pod koncentrisanom silom i skok u M pod koncentrisanim momentom. Prepust je prvi slučaj gde dijagram menja znak unutar jednog nosača.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> negative moment and tension in the top fibre; the jump in V under a point load and the jump in M under an applied moment. The overhang is the first case where the diagram changes sign within one member.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> gde armatura ide gore, a gde dole. Ovo je mesto gde statika prvi put kaže nešto o građenju.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> where the reinforcement goes on top and where at the bottom. This is where statics first says something about building.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">06</span><span class="sr">Rešetke</span><span class="en" lang="en">Trusses</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> metoda čvorova i metoda preseka; prepoznavanje štapova bez sile. Umesto dva mehanička recepta, jedno pravilo: izaberi telo tako da nepoznatih bude onoliko koliko imaš jednačina.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> method of joints and method of sections; spotting zero-force members. Instead of two mechanical recipes, one rule: choose the body so that the unknowns match the equations available.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> krovna rešetka hale iz stvarnog projekta, pritisnuti i zategnuti štapovi obojeni različito.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> a roof truss from a real project, compression and tension members coloured differently.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">07</span><span class="sr">Kolokvijum 1 · statika</span><span class="en" lang="en">In-term test 1 · statics</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>20 poena.</strong> Jedan nosač, jedna rešetka, jedan konceptualni zadatak („ovaj dijagram ne može biti tačan — zašto?"). Dozvoljen je jedan list sa sopstvenim beleškama; formule se ne pamte, pamti se postupak.</span>
+        <span class="en" lang="en"><strong>20 points.</strong> One beam, one truss, one conceptual item ("this diagram cannot be right — why?"). One page of your own notes allowed; formulas are not memorised, the procedure is.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">08</span><span class="sr">Geometrijske karakteristike preseka</span><span class="en" lang="en">Section properties</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> težište, moment inercije, Štajnerov dodatak, otporni moment. Zašto je Iy = bh³/12 a Wy = bh²/6 i zašto I-presek postoji.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> centroid, second moment of area, the parallel-axis term, section modulus. Why Iy = bh³/12 while Wy = bh²/6, and why the I-section exists.</span></p>
+        <p><small><span class="sr">Laboratorija: instrument 2. Prebaci isti materijal iz pravougaonika u I presek i pročitaj koliko se Wy promenio pri istoj površini.</span><span class="en" lang="en">Lab: instrument 2. Move the same area from a rectangle into an I-section and read how much Wy changes.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">09</span><span class="sr">Napon i deformacija</span><span class="en" lang="en">Stress and strain</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> σ = N/A, ε = Δl/l, Hukov zakon, modul elastičnosti kao izmerena osobina materijala a ne konstanta iz tablice. Poređenje E za beton, drvo i čelik i red veličine koji iz toga sledi.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> σ = N/A, ε = Δl/l, Hooke's law, modulus of elasticity as a measured material property rather than a table constant. Comparing E for concrete, timber and steel and the orders of magnitude that follow.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">10</span><span class="sr">Savijanje i smicanje</span><span class="en" lang="en">Bending and shear</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> σ = M/W kao posledica linearne raspodele napona po visini; τ = 1.5V/A za pravougaonik. Zašto pukotina u betonskoj gredi ide koso blizu oslonca a vertikalno u sredini raspona.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> σ = M/W as a consequence of linear stress distribution over the depth; τ = 1.5V/A for a rectangle. Why a crack in a concrete beam runs diagonally near the support and vertically at midspan.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">11</span><span class="sr">Ugib, vitkost, izvijanje</span><span class="en" lang="en">Deflection, slenderness, buckling</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> 5qL⁴/384EI i zašto raspon ulazi na četvrtu; granica upotrebljivosti L/300 i L/250; Ojlerova kritična sila i vitkost kao mera. Prvi put se javlja razlika između „nosi" i „može da se koristi".</span>
+        <span class="en" lang="en"><strong>Goal:</strong> 5qL⁴/384EI and why span enters to the fourth power; serviceability limits of L/300 and L/250; Euler's critical load and slenderness. The first appearance of the difference between "carries" and "is usable".</span></p>
+        <p><small><span class="sr">Zadaci, nivo 3: ugib C24 grede. Isti presek prolazi po nosivosti i pada po ugibu — to je poenta zadatka.</span><span class="en" lang="en">Tasks, level 3: deflection of a C24 beam. The same section passes strength and fails deflection — that is the point of the task.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">12</span><span class="sr">Evrokod: dejstva i granična stanja</span><span class="en" lang="en">Eurocode: actions and limit states</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> EN 1990 i EN 1991: karakteristična i proračunska vrednost, parcijalni koeficijenti, kombinacija 1.35G + 1.5Q, granično stanje nosivosti prema graničnom stanju upotrebljivosti. Zašto koeficijent nije broj iz vazduha nego izražena nesigurnost.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> EN 1990 and EN 1991: characteristic and design values, partial factors, the 1.35G + 1.5Q combination, ultimate versus serviceability limit state. Why a partial factor is not an arbitrary number but expressed uncertainty.</span></p>
+        <p><span class="sr"><strong>Vežba:</strong> prikupljanje opterećenja za jednu stvarnu međuspratnu konstrukciju, sloj po sloj, sa debljinama i specifičnim težinama.</span>
+        <span class="en" lang="en"><strong>Tutorial:</strong> load take-off for one real floor, layer by layer, with thicknesses and unit weights.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">13</span><span class="sr">Beton: EN 1992</span><span class="en" lang="en">Concrete: EN 1992</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> pravougaoni blok napona, μ, ξ = x/d, krak unutrašnjih sila z, potrebna armatura As. Granica duktilnosti ξ ≤ 0.45 i šta se fizički dešava kada se prekorači.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> the rectangular stress block, μ, ξ = x/d, the internal lever arm z, required reinforcement As. The ductility limit ξ ≤ 0.45 and what physically happens when it is exceeded.</span></p>
+        <p><small><span class="sr">Laboratorija: instrument 3, beton. Povećavaj MEd dok presuda ne postane crvena, pa pročitaj razlog.</span><span class="en" lang="en">Lab: instrument 3, concrete. Increase MEd until the verdict turns red, then read the reason.</span></small></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">14</span><span class="sr">Drvo i čelik · Kolokvijum 2</span><span class="en" lang="en">Timber and steel · In-term test 2</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Drvo, EN 1995:</strong> k<sub>mod</sub> kao sprega klase eksploatacije i trajanja opterećenja, k<sub>h</sub>, γ<sub>M</sub> = 1.3; drvo je jedini od tri materijala čija čvrstoća zavisi od toga koliko dugo opterećenje stoji.</span>
+        <span class="en" lang="en"><strong>Timber, EN 1995:</strong> k<sub>mod</sub> as the coupling of service class and load duration, k<sub>h</sub>, γ<sub>M</sub> = 1.3; timber is the only one of the three materials whose strength depends on how long the load stays.</span></p>
+        <p><span class="sr"><strong>Čelik, EN 1993:</strong> klase preseka, M<sub>c,Rd</sub> = W<sub>pl</sub>f<sub>y</sub>/γ<sub>M0</sub>, V<sub>pl,Rd</sub>; razlika elastičnog i plastičnog otpornog momenta na istom profilu.</span>
+        <span class="en" lang="en"><strong>Steel, EN 1993:</strong> cross-section classes, M<sub>c,Rd</sub> = W<sub>pl</sub>f<sub>y</sub>/γ<sub>M0</sub>, V<sub>pl,Rd</sub>; elastic versus plastic section modulus on the same profile.</span></p>
+        <p><span class="sr"><strong>Kolokvijum 2, 20 poena:</strong> jedno dimenzionisanje po izboru materijala, uz obavezno navedene pretpostavke.</span>
+        <span class="en" lang="en"><strong>Test 2, 20 points:</strong> one design check in a material of your choice, with assumptions explicitly stated.</span></p>
+      </div>
+    </details>
+
+    <details class="nedelja">
+      <summary><span class="broj">15</span><span class="sr">Jedna greda, tri materijala</span><span class="en" lang="en">One beam, three materials</span></summary>
+      <div class="telo">
+        <p><span class="sr"><strong>Cilj:</strong> ista greda, isti raspon, isto opterećenje — dimenzionisana u betonu, drvu i čeliku. Uporedi visinu preseka, sopstvenu težinu, ugib i broj pretpostavki koje si morao da napišeš. Odbrana je usmena, pet minuta, bez slajdova.</span>
+        <span class="en" lang="en"><strong>Goal:</strong> the same beam, span and load — designed in concrete, timber and steel. Compare section depth, self-weight, deflection and the number of assumptions you had to write down. A five-minute oral defence, no slides.</span></p>
+        <p><span class="sr">Ovo je zadatak koji odvaja studenta koji je naučio postupak od studenta koji je naučio mehaniku. Postupak daje tri broja; mehanika objašnjava zašto su različiti.</span>
+        <span class="en" lang="en">This is the task that separates a student who learned the procedure from one who learned the mechanics. The procedure yields three numbers; the mechanics explains why they differ.</span></p>
+      </div>
+    </details>
+
+    <h2><span class="sr">Literatura</span><span class="en" lang="en">Reading</span></h2>
+    <ul>
+      <li><span class="sr">Standardi: EN 1990 (osnove), EN 1991 (dejstva), EN 1992 (beton), EN 1993 (čelik), EN 1995 (drvo), EN 338 (klase drveta) — u srpskoj primeni kao SRPS EN sa nacionalnim prilozima.</span>
+      <span class="en" lang="en">Standards: EN 1990 (basis), EN 1991 (actions), EN 1992 (concrete), EN 1993 (steel), EN 1995 (timber), EN 338 (timber classes) — adopted in Serbia as SRPS EN with national annexes.</span></li>
+      <li><a href="https://engineeringstatics.org/">Engineering Statics: Open and Interactive</a> — <span class="sr">Baker i Haynes, besplatan otvoren udžbenik statike sa interaktivnim slikama.</span><span class="en" lang="en">Baker and Haynes, a free open statics textbook with interactive figures.</span></li>
+      <li><a href="https://learnaboutstructures.com/">learnaboutstructures.com</a> — <span class="sr">Erochko, uvod u analizu konstrukcija, besplatno na internetu.</span><span class="en" lang="en">Erochko, an introduction to structural analysis, free online.</span></li>
+      <li><a href="https://www.theconcreteinitiative.eu/images/ECP_Documents/Eurocode2_WorkedExamples.pdf">Eurocode 2 Worked Examples</a> <span class="sr">i</span><span class="en" lang="en">and</span> <a href="https://www.makico.net/wp-content/uploads/2023/10/Steel-Building-Design-Worked-examples-for-students.pdf">SCI P387 Steel Building Design: Worked examples for students</a>.</li>
+      <li><span class="sr">Potpun popis izvora sa datumom provere i granicama je na strani <a href="metod.html">Metod</a>.</span>
+      <span class="en" lang="en">The full source list with check dates and limits is on the <a href="metod.html">Method</a> page.</span></li>
+    </ul>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="https://github.com/3esign/mechanics-lab">GitHub</a> · <a href="ucestvuj.html"><span class="sr">Učestvuj</span><span class="en" lang="en">Contribute</span></a> · CC BY-SA 4.0 + MIT</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
