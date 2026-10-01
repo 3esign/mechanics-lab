@@ -1,0 +1,22 @@
+{
+  "kit": "svemir-project-kit/v1",
+  "name": "mechanics-lab",
+  "description": "Mechanics Lab: otvoren interaktivni kurs mehanike za gradjevinu (statika, otpornost, EN 1992/1993/1995), GitHub Pages pilot za nastavu prof. Darinke",
+  "created": "2026-10-01T21:21:49.513Z",
+  "updated": "2026-10-01T21:21:54.711Z",
+  "status": "active",
+  "phases": [],
+  "currentPhase": null,
+  "nextMove": "Uporediti program sa zvanicnim akreditovanim silabusom predmeta prof. Darinke; zatim resetke u laboratoriji (nedelja 6 je jedina bez instrumenta)",
+  "registration": {
+    "status": "registered",
+    "path": "C:Svemirdataproject_kits.jsonl",
+    "at": "2026-10-01T21:21:49.517Z"
+  },
+  "stats": {
+    "log": 9,
+    "terms": 6,
+    "kb": 1,
+    "handoffs": 0
+  }
+}
